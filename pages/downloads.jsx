@@ -15,7 +15,7 @@ export default function Home(props) {
     );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     const { data } = await Axios.get("/downloads.aspx");
     const $ = cheerio.load(data);
     const groups = $(".accordion-cstm")
@@ -43,5 +43,6 @@ export async function getServerSideProps(context) {
         props: {
             groups: groups,
         },
+        revalidate:1000,
     };
 }

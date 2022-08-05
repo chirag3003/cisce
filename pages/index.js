@@ -5,7 +5,6 @@ import Axios from "helpers/Axios";
 import cheerio from "cheerio";
 
 export default function Home(props) {
-    console.log(props);
     return (
         <div>
             <Seo />
@@ -16,7 +15,7 @@ export default function Home(props) {
     );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     const { data } = await Axios.get("/");
     const $ = cheerio.load(data);
 
@@ -59,5 +58,6 @@ export async function getServerSideProps(context) {
             isc,
             notices,
         },
+        revalidate: 1000,
     };
 }

@@ -6,7 +6,6 @@ import cheerio from "cheerio";
 import Syllabus from "components/Syllabus";
 
 export default function Home(props) {
-    console.log(props);
     return (
         <div>
             <Seo />
@@ -17,7 +16,7 @@ export default function Home(props) {
     );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const { data } = await Axios.get("/publicationdetail.aspx?id=102");
     const $ = cheerio.load(data);
     const list = $(".download-wrapper a")
@@ -32,5 +31,6 @@ export async function getServerSideProps() {
         props: {
             list,
         },
+        revalidate: 1000,
     };
 }

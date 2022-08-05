@@ -19,7 +19,13 @@ function HomeCard({ title = "", data }) {
                                     {data.links.map((link, index) => {
                                         return (
                                             <li key={index} className={"my-3"}>
-                                                <a href={link.href}>{link.title}</a>
+                                                <a
+                                                    rel="noreferrer"
+                                                    target={"_blank"}
+                                                    href={link.href}
+                                                >
+                                                    {link.title}
+                                                </a>
                                             </li>
                                         );
                                     })}

@@ -41,11 +41,23 @@ export async function getServerSideProps(context) {
         description: $("#third-menu .dropdown-left-content p").first().text(),
         links: getLinks($("#third-menu ul li").toArray()),
     };
+    const notices = $(".notice-board-wrapper a")
+        .toArray()
+        .map((item) => {
+            let a = $(item);
+            let href = a.attr("href");
+            if (!href.startsWith("https://cisce.org")) href = `https://cisce.org/${href}`;
+            return {
+                title: a.text(),
+                href: href,
+            };
+        });
 
     return {
         props: {
             icse,
             isc,
+            notices,
         },
     };
 }

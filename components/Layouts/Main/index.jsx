@@ -5,19 +5,23 @@ import {
     MenuAlt2Icon,
     DownloadIcon,
     XIcon,
+    BookOpenIcon,
     NewspaperIcon,
 } from "@heroicons/react/outline";
 import { SearchIcon } from "@heroicons/react/solid";
 import classNames from "helpers/classNames";
 
 const navigation = [
-    { name: "Home", href: "#", icon: HomeIcon, current: true },
-    { name: "Downloads", href: "#", icon: DownloadIcon, current: false },
-    { name: "Publications", href: "#", icon: NewspaperIcon, current: false },
+    { name: "Home", href: "/", icon: HomeIcon, current: true },
+    { name: "Downloads", href: "/downloads", icon: DownloadIcon, current: false },
+    { name: "Syllabus ICSE", href: "/syllabus/icse", icon: BookOpenIcon, current: false },
+    { name: "Syllabus ISC", href: "/syllabus/isc", icon: BookOpenIcon, current: false },
+    { name: "Specimen Paper ISC", href: "/specimen/isc", icon: NewspaperIcon, current: false },
+    { name: "Specimen Paper ICSE", href: "/specimen/icse", icon: NewspaperIcon, current: false },
 ];
 const projects = [
-    { id: 1, name: "GraphQL API", href: "#" },
-    { id: 2, name: "iOS App", href: "#" },
+    // { id: 1, name: "GraphQL API", href: "#" },
+    // { id: 2, name: "iOS App", href: "#" },
 ];
 
 export default function MainLayout({ children }) {
@@ -180,7 +184,7 @@ export default function MainLayout({ children }) {
                                         </a>
                                     ))}
                                 </div>
-                                <div className="mt-10">
+                                {/* <div className="mt-10">
                                     <p className="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">
                                         Projects
                                     </p>
@@ -195,7 +199,7 @@ export default function MainLayout({ children }) {
                                             </a>
                                         ))}
                                     </div>
-                                </div>
+                                </div> */}
                             </nav>
                         </div>
                     </div>
@@ -243,7 +247,7 @@ export default function MainLayout({ children }) {
                         </div>
                     </div>
 
-                    <main className="flex-1 text-blue-900">
+                    <main className="flex-1 text-blue-900 h-full overflow-y-auto">
                         <div className="py-8 xl:py-10">{children}</div>
                     </main>
                 </div>

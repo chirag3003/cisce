@@ -40,6 +40,21 @@ export async function getStaticProps(context) {
         description: $("#third-menu .dropdown-left-content p").first().text(),
         links: getLinks($("#third-menu ul li").toArray()),
     };
+    icse.links[0].href = "/syllabus/icse";
+    isc.links[0].href = "/syllabus/isc";
+    icse.links[1].href = "/specimen/icse";
+    isc.links[1].href = "/specimen/isc";
+
+    const images = [];
+    const imgs = $(".banner-wrapper img").toArray();
+    const h2s = $(".banner-wrapper h2").toArray();
+    imgs.forEach((img, index) => {
+        images.push({
+            title: $(h2s[index]).text(),
+            src: `https://cisce.org/${$(img).attr("src")}`,
+        });
+    });
+
     const notices = $(".notice-board-wrapper a")
         .toArray()
         .map((item) => {
@@ -57,6 +72,7 @@ export async function getStaticProps(context) {
             icse,
             isc,
             notices,
+            images,
         },
         revalidate: 1000,
     };

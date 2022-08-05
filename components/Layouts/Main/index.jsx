@@ -80,11 +80,11 @@ export default function MainLayout({ children }) {
                                         </div>
                                     </Transition.Child>
                                     <div className="flex-shrink-0 flex items-center px-4">
-                                        <img
+                                        {/* <img
                                             className="h-8 w-auto"
                                             src="https://tailwindui.com/img/logos/workflow-logo-rose-500-mark-white-text.svg"
                                             alt="Workflow"
-                                        />
+                                        /> */}
                                     </div>
                                     <div className="mt-5 flex-1 h-0 overflow-y-auto">
                                         <nav className="px-2">
@@ -115,24 +115,6 @@ export default function MainLayout({ children }) {
                                                         {item.name}
                                                     </a>
                                                 ))}
-                                            </div>
-                                            <div className="mt-10">
-                                                <p className="px-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                                                    Projects
-                                                </p>
-                                                <div className="mt-2 space-y-1">
-                                                    {projects.map((project) => (
-                                                        <a
-                                                            key={project.id}
-                                                            href={project.href}
-                                                            className="flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 text-base font-medium rounded-md"
-                                                        >
-                                                            <span className="truncate">
-                                                                {project.name}
-                                                            </span>
-                                                        </a>
-                                                    ))}
-                                                </div>
                                             </div>
                                         </nav>
                                     </div>
@@ -184,22 +166,6 @@ export default function MainLayout({ children }) {
                                         </a>
                                     ))}
                                 </div>
-                                {/* <div className="mt-10">
-                                    <p className="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                                        Projects
-                                    </p>
-                                    <div className="mt-2 space-y-1">
-                                        {projects.map((project) => (
-                                            <a
-                                                key={project.id}
-                                                href={project.href}
-                                                className="group flex items-center px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700"
-                                            >
-                                                <span className="truncate">{project.name}</span>
-                                            </a>
-                                        ))}
-                                    </div>
-                                </div> */}
                             </nav>
                         </div>
                     </div>

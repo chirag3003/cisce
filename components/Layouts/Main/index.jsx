@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
     HomeIcon,
@@ -10,9 +10,10 @@ import {
 } from "@heroicons/react/outline";
 import { SearchIcon } from "@heroicons/react/solid";
 import classNames from "helpers/classNames";
+import { useRouter } from "next/router";
 
-const navigation = [
-    { name: "Home", href: "/", icon: HomeIcon, current: true },
+const navigationData = [
+    { name: "Home", href: "/", icon: HomeIcon, current: false },
     { name: "Downloads", href: "/downloads", icon: DownloadIcon, current: false },
     { name: "Syllabus ICSE", href: "/syllabus/icse", icon: BookOpenIcon, current: false },
     { name: "Syllabus ISC", href: "/syllabus/isc", icon: BookOpenIcon, current: false },
@@ -26,7 +27,19 @@ const projects = [
 
 export default function MainLayout({ children }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
-
+    const [navigation, setNavigation] = useState(navigationData);
+    const router = useRouter();
+    useEffect(() => {
+        let newNavigation = navigationData.map((nav) => {
+            if (nav.href === router.pathname || nav.href + "/" === router.pathname)
+                return {
+                    ...nav,
+                    current: true,
+                };
+            return nav;
+        });
+        setNavigation(newNavigation);
+    }, [router.pathname]);
     return (
         <>
             <div className="h-screen flex bg-[#E8F9FD]">
@@ -205,8 +218,16 @@ export default function MainLayout({ children }) {
                         </div>
                     </div>
 
-                    <main className="flex-1 text-blue-900 h-full overflow-y-auto">
-                        <div className="py-8 xl:py-10">{children}</div>
+                    <main className="flex-1 text-blue-900 h-full overflow-y-auto ">
+                        <div className="py-8 xl:py-10 min-h-full relative ">
+                            {children}
+                            <div className=" absolute  w-full bottom-0 left-0 bg-base-300 text-white p-4 text-center">
+                                Made with ❤️ by
+                                <a className="underline ml-2" href="http://chirag.codes">
+                                    Chirag Bhalotia
+                                </a>
+                            </div>
+                        </div>
                     </main>
                 </div>
             </div>

@@ -18,7 +18,7 @@ function HomePage({ data }) {
                 <HomeCard title="I.C.S.E" data={data.icse} />
                 <HomeCard title="I.S.C" data={data.isc} />
             </div>
-            <Banner images={data.images} />
+            {/* <Banner images={data.images} /> */}
             <div className="data lg:grid lg:grid-cols-2 w-full p-4">
                 <Notices data={data.notices} />
             </div>

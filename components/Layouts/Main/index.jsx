@@ -144,13 +144,13 @@ export default function MainLayout({ children }) {
                 <div className="hidden lg:flex lg:w-64 lg:fixed lg:inset-y-0">
                     {/* Sidebar component, swap this element with another sidebar if you like */}
                     <div className="flex-1 flex flex-col min-h-0">
-                        <div className="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900">
+                        {/* <div className="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900">
                             <img
                                 className="h-8 w-auto"
                                 src="https://tailwindui.com/img/logos/workflow-logo-rose-500-mark-white-text.svg"
                                 alt="Workflow"
                             />
-                        </div>
+                        </div> */}
                         <div className="flex-1 flex flex-col overflow-y-auto bg-gray-800">
                             <nav className="flex-1 px-2 py-4">
                                 <div className="space-y-1">

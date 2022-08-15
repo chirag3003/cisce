@@ -1,6 +1,6 @@
 import React from "react";
 import HomeCard from "./HomeCard";
-import { DocumentReportIcon } from "@heroicons/react/outline";
+import { InformationCircleIcon } from "@heroicons/react/outline";
 import Notices from "./Notices";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { images } from "next.config";
@@ -9,6 +9,15 @@ import Banner from "./Banner";
 function HomePage({ data }) {
     return (
         <section className="w-full px-2 lg:px-5">
+            <div className="alert bg-yellow-200 text-yellow-600 mt-0 shadow-lg">
+                <div>
+                    <InformationCircleIcon height={30} width={30} />
+                    <span>
+                        This is not the officail CISCE Website.{" "}
+                        <a className="underline" href="https://cisce.org">Click Here</a> to visit the official website!
+                    </span>
+                </div>
+            </div>
             <div className="heading text-xl font-bold pl-3 my-9">
                 <h1>
                     {'"'} Welcome 👋, to a much better CISCE website {'"'}

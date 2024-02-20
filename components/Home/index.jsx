@@ -13,7 +13,7 @@ function HomePage({ data }) {
                 <div>
                     <InformationCircleIcon height={30} width={30} />
                     <span>
-                        This is not the officail CISCE Website.{" "}
+                        This is not the official CISCE Website.{" "}
                         <a className="underline" href="https://cisce.org">Click Here</a> to visit the official website!
                     </span>
                 </div>
